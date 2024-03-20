@@ -20,7 +20,7 @@
                         evt.detail.isError = false;
                     }
                 });
-            })        
+            })
         </script>
     </body>
 </html>
@@ -28,13 +28,12 @@
 
 {{ block "form" . }}
 <form hx-swap="outerHTML" hx-post="/contacts">
-    name: <input 
-    {{ if.values.name }} value="{{ .Values.name }}" {{ end }}
-    type="text" name="name" />
-    email: <input 
-    {{ if.values.email }} value="{{ .Values.email }}" {{ end }}
-    type="text" name="email" />
-
+    name: <input
+        {{ if.Values.name }} value="{{ .Values.name }}" {{ end }}
+        type="text" name="name" />
+    email: <input
+        {{ if.Values.email }} value="{{ .Values.email }}" {{ end }}
+        type="text" name="email" />
     {{ if .Errors.email }}
         <div style="color: red">{{ .Errors.email }}</div>
     {{ end }}

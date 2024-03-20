@@ -44,7 +44,7 @@ type Data struct {
 	Contacts Contacts
 }
 
-func (d Data) hasEmail(email string) bool {
+func (d *Data) hasEmail(email string) bool {
 	for _, contact := range d.Contacts {
 		if contact.Email == email {
 			return true
@@ -114,6 +114,7 @@ func main() {
 			formData.Values["name"] = name
 			formData.Values["email"] = email
 			formData.Errors["email"] = "Email already exists"
+			
 			return c.Render(422, "form", formData)
 		}
 
