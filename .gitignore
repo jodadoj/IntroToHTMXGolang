@@ -21,4 +21,3 @@
 go.work
 
 *.log
-tmp/build-errors.log
