@@ -51,11 +51,11 @@
 {{ end }}
 
 {{ block "contact" . }}
-    <div style="display: flex">
-        <div style="width: 1rem">
+    <div id="contact-{{ .Id }}" style="display: flex">
+        <div hx-target="#contact-{{ .Id }}" hx-swap="outerHTML" hx-delete="/contacts/{{ .Id }}" style="width: 1rem">
             <i class="fa fa-trash" aria-hidden="true"></i>
-
         </div>
+
         Name: <span>{{ .Name }}</span>
         Email: <span>{{ .Email }}</span>
     </div>
