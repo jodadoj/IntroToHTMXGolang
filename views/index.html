@@ -44,10 +44,20 @@
 {{ block "display" . }}
 <div id="contacts" style="display: flex; flex-direction: column">
     {{ range .Contacts }}
+    {{ template "contact" . }}
+    {{ end }}
+</div>
+{{ end }}
+
+{{ block "contact" . }}
     <div>
         Name: <span>{{ .Name }}</span>
         Email: <span>{{ .Email }}</span>
     </div>
-    {{ end }}
-</div>
+{{ end }}
+
+{{ block "oob-contact" . }}
+    <div id="contacts" hx-swap-oob="afterbegin">
+        {{ template "contact" }}
+    </div>
 {{ end }}
