@@ -50,7 +50,13 @@
 {{ end }}
 
 {{ block "contact" . }}
-    <div>
+    <div style="display: flex">
+        <div style="width: 1rem">
+            <svg cmlns="http://w3.org/2000/svg" viewbox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path d="M4 2h16a1 1 0 011 1v1al 1 0 01-1 1H4al 1 0 011-1zM3 6h18v1" />
+            </svg>
+        </div>
         Name: <span>{{ .Name }}</span>
         Email: <span>{{ .Email }}</span>
     </div>
