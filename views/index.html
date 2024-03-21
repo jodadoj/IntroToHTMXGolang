@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Intro to HTMX and Go</title>
         <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         {{ template "form" .Form }}
@@ -52,10 +53,8 @@
 {{ block "contact" . }}
     <div style="display: flex">
         <div style="width: 1rem">
-            <svg cmlns="http://w3.org/2000/svg" viewbox="0 0 24 24">
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path d="M4 2h16a1 1 0 011 1v1al 1 0 01-1 1H4al 1 0 011-1zM3 6h18v1" />
-            </svg>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+
         </div>
         Name: <span>{{ .Name }}</span>
         Email: <span>{{ .Email }}</span>
