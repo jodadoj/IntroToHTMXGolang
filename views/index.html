@@ -8,6 +8,22 @@
         <title>Intro to HTMX and Go</title>
         <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .htmx-indicator {
+                opacity: 0;
+                transition: opacity 500ms ease-in;
+            }
+            .htmx-request .htmx-indicator {
+                opacity: 1;
+            }
+            .htmx-request.htmx-indicator {
+                opacity: 1;
+            }
+            .contact.htmx-swapping {
+                opacity: 0;
+                transition: opacity 500ms ease-in;
+            }
+        </style>
     </head>
     <body>
         {{ template "form" .Form }}
@@ -51,13 +67,17 @@
 {{ end }}
 
 {{ block "contact" . }}
-    <div id="contact-{{ .Id }}" style="display: flex">
-        <div hx-target="#contact-{{ .Id }}" hx-swap="outerHTML" hx-delete="/contacts/{{ .Id }}" style="width: 1rem">
+    <div class="contact" id="contact-{{ .Id }}" style="display: flex">
+        <div hx-indicator="#ci-{{ .Id }}" hx-target="#contact-{{ .Id }}" hx-swap="outerHTML" hx-delete="/contacts/{{ .Id }}" style="width: 1rem">
             <i class="fa fa-trash" aria-hidden="true"></i>
         </div>
 
         Name: <span>{{ .Name }}</span>
         Email: <span>{{ .Email }}</span>
+        
+        <div id="ci-{{ .Id }}" class="htmx-indicator">
+            <i class="fa fa-circle-o-notch fa-spin fa-ig fa-fw"></i>
+        </div>
     </div>
 {{ end }}
 
